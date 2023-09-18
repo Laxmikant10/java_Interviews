@@ -3,6 +3,7 @@ package src.java8;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 //Peek,Limit & Skip functionality
 /*Peek --> to check the values in between streaming operation.
@@ -17,15 +18,15 @@ public class Stream_Peek_Limit_Skip {
 
         //Peek Functionality
         System.out.println("Peek Functionality");
-        list.stream().peek(System.out::println).toList();
+        list.stream().peek(System.out::println).collect(Collectors.toList());
         //System.out.println("integerList = " + integerList);
 
         System.out.println("original list = " + list);
 
         //list.stream().limit(3).forEach(System.out::println);
-        List<Integer> limit_Ref = list.stream().limit(3).toList();
+        List<Integer> limit_Ref = list.stream().limit(3).collect(Collectors.toList());
         System.out.println("Limit functionality  = " + limit_Ref);
-        List<Integer> skip_Ref = list.stream().skip(3).toList();
+        List<Integer> skip_Ref = list.stream().skip(3).collect(Collectors.toList());
         System.out.println("Skip functionality = " + skip_Ref);
 
 

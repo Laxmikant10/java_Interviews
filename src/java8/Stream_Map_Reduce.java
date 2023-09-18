@@ -12,7 +12,7 @@ public class Stream_Map_Reduce {
 
         String[] strArray = {"Lalla", "laxmikant", "Anu", "Anushree", "Saurabh", "Bonker_Corner"};
 
-        List<String> collect = Arrays.stream(strArray).map(s -> s + "_Ji").toList();
+        List<String> collect = Arrays.stream(strArray).map(s -> s + "_Ji").collect(Collectors.toList());
         System.out.println("Map output = " + collect);
 
 
@@ -23,7 +23,7 @@ public class Stream_Map_Reduce {
         List<Integer> list = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
 
         //list.stream().map(x -> x + 1).forEach(System.out::println);
-        List<Integer> integerList = list.stream().map(x -> x + 10).toList();
+        List<Integer> integerList = list.stream().map(x -> x + 10).collect(Collectors.toList());
         System.out.println("Map integerList = " + integerList);
 
         Integer integer = list.stream().reduce((m, n) -> m + n).get();
