@@ -18,7 +18,9 @@ public class Employee_Sort {
         System.out.println("employeeList = " + employeeList);
 
         Comparator<EmployeeDOA> byName = (o1, o2) -> o1.getName().compareTo(o2.getName());
+        //Comparator<EmployeeDOA> byName = Comparator.comparing(EmployeeDOA::getName);
         Comparator<EmployeeDOA> byId = (o1, o2) -> Integer.compare(o1.getId(), o2.getId());
+        //Comparator<EmployeeDOA> byId = Comparator.comparingInt(EmployeeDOA::getId);
 
         //Sort employee with name
         employeeList.stream().sorted(byName).forEach(System.out::println);
