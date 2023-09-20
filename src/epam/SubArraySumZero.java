@@ -8,10 +8,26 @@ import java.util.Map;
 public class SubArraySumZero {
     public static void main(String[] args) {
         //TODO
-        int[] arr = {15, -2, 2, -8, 1, 7, 10, 23};
+        int[] array = {15, -2, 2, -8, 1, 7, -10, 23};
+        //int[] array = {15, 2, 2, -8, 1, 7, 10, 23};
         int max_sum = 0;
-        HashMap<Integer, Integer> hashMap = new HashMap<>();
 
-        //for(arr)
+        boolean b = checkSubArrayWithSumZero(array, max_sum);
+        System.out.println("Sub Array with At least 0 sum Available = " + b);
+    }
+
+    private static boolean checkSubArrayWithSumZero(int[] array, int maxSum) {
+        Map<Integer, Integer> map = new HashMap<>();
+
+        int currentSum = 0;
+        for (int i = 0; i < array.length; i++) {
+            currentSum += array[i];
+            if (map.containsKey(currentSum)) {
+                return true;
+            } else {
+                map.put(currentSum, i);
+            }
+        }
+        return false;
     }
 }
