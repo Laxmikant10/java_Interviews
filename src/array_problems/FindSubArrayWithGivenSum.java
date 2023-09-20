@@ -31,7 +31,6 @@ public class FindSubArrayWithGivenSum {
             System.out.println(startIndex+","+endIndex);
             System.out.println("Index values => "+ array[startIndex]+" & "+array[endIndex]);
         }
-
     }
 
     public static void main(String[] args) {
