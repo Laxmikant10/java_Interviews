@@ -1,21 +1,72 @@
 package src.neoSoft;
 
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.Map;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public class DigitOccurrences {
     public static void main(String[] args) {
-        //TODO
-        long ll = 3453476253423l;
-        String value = String.valueOf(ll);
-        String[] split = value.split("");
-        System.out.println("split = " + split.length);
 
-        Arrays.stream(split).mapToInt(value1 -> Collections.frequency(Arrays.asList(split),value1)).forEach(System.out::print);
-        //Arrays.
+        long ll = 3453476253423L;
 
+        getDigitOccurrences_lambdaExMethodRef(ll);
 
-        // Arrays.stream(ll)
+        getDigitOccurrences_lambdaExWithOutMethodRef(ll);
+
+        getDigitOccurrences_bruteForceSolution(ll);
+
 
     }
+
+    /**
+     * without method reference
+     */
+    private static void getDigitOccurrences_lambdaExWithOutMethodRef(long ll) {
+        String value = String.valueOf(ll);
+        char[] charArray = value.toCharArray();
+        Map<Integer, Long> collect2 = value.chars().filter(c -> Character.isDigit(c))
+                .mapToObj(c -> Character.getNumericValue(c))
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        System.out.println("DigitOccurrences_LambdaExpressionWithOutMethodRef = " + collect2);
+    }
+
+    /**
+     * with method reference
+     */
+    private static void getDigitOccurrences_lambdaExMethodRef(long ll) {
+        String value = String.valueOf(ll);
+        Map<Integer, Long> collect1 = value.chars()
+                .filter(Character::isDigit)
+                .mapToObj(Character::getNumericValue)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        System.out.println("DigitOccurrences_lambdaExpressionMethodRef = " + collect1);
+    }
+
+    /**
+     * brute-Force Solution approach
+     */
+    private static void getDigitOccurrences_bruteForceSolution(long ll) {
+
+        // Convert the long to a string
+        String value = String.valueOf(ll);
+
+        //Create a sub array from 0-9 to check the count of values
+        int[] subArray = new int[10];
+
+        // Iterate through each character in the string and count occurrences
+        for (char c : value.toCharArray()) {
+            if (Character.isDigit(c)) {
+                int numericValue = Character.getNumericValue(c);
+
+                subArray[numericValue] = subArray[numericValue] + 1;
+            }
+        }
+
+        // Print the occurrences
+        for (int i=0;i<subArray.length;i++){
+            System.out.println("Digit : "+i+" Occurrences => "+subArray[i]);
+        }
+    }
 }
+
