@@ -7,7 +7,6 @@ import java.util.Map;
 // find if there is a subarray (of size at least one) with 0 sum
 public class SubArraySumZero {
     public static void main(String[] args) {
-        //TODO
         int[] array = {15, -2, 2, -8, 1, 7, -10, 23};
         //int[] array = {15, 2, 2, -8, 1, 7, 10, 23};
         int max_sum = 0;

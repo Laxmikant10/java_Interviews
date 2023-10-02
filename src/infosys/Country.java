@@ -1,5 +1,7 @@
 package src.infosys;
 
+import java.util.Objects;
+
 public class Country {
     String name;
      int population;
@@ -31,5 +33,18 @@ public class Country {
                 "name='" + name + '\'' +
                 ", population=" + population +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Country country = (Country) obj;
+        return population == country.population && Objects.equals(name, country.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, population);
     }
 }
