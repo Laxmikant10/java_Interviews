@@ -23,7 +23,6 @@ public class DigitOccurrences {
      */
     private static void getDigitOccurrences_lambdaExWithOutMethodRef(long ll) {
         String value = String.valueOf(ll);
-        char[] charArray = value.toCharArray();
         Map<Integer, Long> collect2 = value.chars().filter(c -> Character.isDigit(c))
                 .mapToObj(c -> Character.getNumericValue(c))
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));

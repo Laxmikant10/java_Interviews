@@ -1,5 +1,10 @@
 package src.nttdata;
 
+/**
+ * Given a sorted array large size of int[] arr= {4,6,12, 13,15,17,19,…}
+ * and sum is addition of two elements in an array.
+ * Find the index of elements which adds up to sum. Use efficient algorithm
+ */
 public class Find2IndexOfGivenSum {
     public static void main(String[] args) {
         int[] array = {4, 6, 12, 13, 15, 17, 19};
