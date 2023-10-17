@@ -16,6 +16,7 @@ public class Employee_Sort {
         employeeList.add(new EmployeeDOA(10,"Gale"));
 
         System.out.println("employeeList = " + employeeList);
+        System.out.println("---------------------------------------------");
 
         Comparator<EmployeeDOA> byName = (o1, o2) -> o1.getName().compareTo(o2.getName());
         //Comparator<EmployeeDOA> byName = Comparator.comparing(EmployeeDOA::getName);
