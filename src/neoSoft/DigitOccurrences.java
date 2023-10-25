@@ -14,6 +14,7 @@ public class DigitOccurrences {
         getDigitOccurrences_lambdaExWithOutMethodRef(ll);
 
         getDigitOccurrences_bruteForceSolution(ll);
+        getDigitOccurrences_whileLoop(ll);
 
 
     }
@@ -65,6 +66,21 @@ public class DigitOccurrences {
         // Print the occurrences
         for (int i=0;i<subArray.length;i++){
             System.out.println("Digit : "+i+" Occurrences => "+subArray[i]);
+        }
+    }
+
+    private static void getDigitOccurrences_whileLoop(long ll) {
+        //3453476253423L
+        int[] digitCount = new int[10];
+
+        while(ll>0){
+            int rem = (int)(ll%10);
+            digitCount[rem]++;
+            ll = ll/10;
+        }
+
+        for(int i=0;i<=9;i++){
+            System.out.println("Digit :" + i+" Occurred :"+digitCount[i]+" times.");
         }
     }
 }
