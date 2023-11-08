@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.Set;
 
 /**
+ * Find  any pair consecutive or non-consecutive Pair
+ *
  * Array = [3, 5, -4, 8, 11, 1, -1, 6]
  * Target Sum = 10
  * Result = [-1,11]
