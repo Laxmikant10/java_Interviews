@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 /*
-This code is valid only for consecutive array or else refer mastercard code for betterment
+This code is valid only for consecutive array and for non-consecutive refer mastercard code for betterment
  */
 public class FindSubArrayWithGivenSum {
 
