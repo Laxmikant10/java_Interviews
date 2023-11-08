@@ -1,4 +1,4 @@
-package src.ust;
+package src.ust.interf;
 
 @FunctionalInterface
 public interface FuntionalInterf_A {

@@ -1,4 +1,4 @@
-package src.ust;
+package src.ust.problems;
 
 public class FindOutput {
 
