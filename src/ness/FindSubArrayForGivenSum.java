@@ -40,7 +40,7 @@ public class FindSubArrayForGivenSum {
         int end_index;
 
         for (int i = 0; i < arr.length; i++) {
-            currentSum = currentSum + arr[i]; //18
+            currentSum = currentSum + arr[i];
 
             if (currentSum == sum) {
                 start_index = 0;
