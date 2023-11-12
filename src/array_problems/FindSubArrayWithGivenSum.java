@@ -4,21 +4,51 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 /*
-This code is valid only for consecutive array and for non-consecutive refer mastercard code for betterment
+This code is valid only for consecutive array and for non-consecutive(without sorted approach) refer mastercard code for betterment
  */
 public class FindSubArrayWithGivenSum {
 
     public static void main(String[] args) {
         int[] array = {10, 15, -5, 15, -10, 5};
         int sum = 5;
+        /*int[] array = {0, -1, 2, -3, 1};
+        int sum = -2;*/
 
         //O(N) --> time complexity
         int[] pairs = findPairs(array, sum);
         System.out.println("pairs = " + Arrays.toString(pairs));
 
+        //Pointer Approach(for performing this operation need to sort Element in Ascending order)
+        // --> O(NlogN), Time complexity for sorting the array
+        String pointerApproach = findPairs_PointerApproach(array, sum);
+        System.out.println("pointerApproach = " + pointerApproach);
+
         //O(N^2) --> time complexity
         int[] pairsBruteForceSolution = findPairs_BruteForceSolution(array, sum);
         System.out.println("pairsBruteForceSolution = " + Arrays.toString(pairsBruteForceSolution));
+    }
+
+    private static String findPairs_PointerApproach(int[] array, int sum) { // {10, 15, -5, 15, -10, 5}
+
+        Arrays.sort(array); //[-10, -5, 5, 10, 15, 15]
+        //System.out.println("array = " + Arrays.toString(array));
+
+        int left = 0;
+        int right = array.length-1;
+
+        while (left<right){
+            int currentSum = array[left]+array[right];
+            if(currentSum == sum){
+                System.out.println("left = " + array[left]);
+                System.out.println("right = " + array[right]);
+                break;
+            } else if (currentSum<sum) {
+                left++;
+            } else {
+                right--;
+            }
+        }
+        return "["+array[left]+","+array[right]+"]";
     }
 
     private static int[] findPairs(int[] arr, int sum) {
