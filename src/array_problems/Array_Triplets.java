@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 public class Array_Triplets {
-    //TODO
+
     public static void main(String[] args) {
 
         /*int[] arr = { 1, 4, 45, 6, 10, 8 };
