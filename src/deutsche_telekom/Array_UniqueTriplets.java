@@ -28,7 +28,6 @@ import java.util.TreeSet;
  * -105 <= nums[i] <= 105
  */
 public class Array_UniqueTriplets {
-    //TODO
     public static void main(String[] args) {
         int[] nums = {12, 3, 6, 1, 6, 9};
         int sum = 24;
