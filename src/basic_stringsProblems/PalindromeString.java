@@ -1,6 +1,7 @@
 package src.basic_stringsProblems;
 
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class PalindromeString {
     public static void main(String[] args) {
@@ -9,6 +10,11 @@ public class PalindromeString {
         palindrome_usingStringBufferReverseMethod(str);
 
         palindrome_usingForLoopBruteForceSolution(str);
+
+        //Efficient way with ForLoop
+        palindrome_usingForLoop(str);
+
+        palindrome_usingJava8(str);
 
     }
 
@@ -41,6 +47,37 @@ public class PalindromeString {
             System.out.println("String is palindrome");
         } else {
             System.out.println("String is NOT palindrome");
+        }
+    }
+
+
+    private static void palindrome_usingForLoop(String str) {
+        boolean flag = true;
+        for (int i = 0; i < str.length() / 2; i++) //madam
+        {
+            if (str.charAt(i) != str.charAt(str.length() - i - 1)) {
+                flag = false;
+                break;
+            }
+        }
+        if(flag){
+            System.out.println(str+": Is Palindrome");
+        }else {
+            System.out.println(str+": Is Not Palindrome");
+
+        }
+    }
+
+    private static void palindrome_usingJava8(String str) {
+
+        boolean palindrome = IntStream.range(0, str.length() / 2)
+                .noneMatch(value -> str.charAt(value) != str.charAt(str.length() - value - 1));
+
+        if(palindrome){
+            System.out.println(str+": Is Palindrome");
+        }else {
+            System.out.println(str+": Is Not Palindrome");
+
         }
     }
 }
